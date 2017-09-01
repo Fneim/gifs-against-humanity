@@ -80,7 +80,7 @@ function joinGame(key) {
         }
         //Otherwise change the game state to closed (2)
         //TODO: Delete closed games from the game list in realtime (instead of on join click)
-        else(
+        else{
             games.child(key).once("value", function(game) {
                 gameData = game.val();
                 firebase.database().ref("/games/"+key)
@@ -88,7 +88,7 @@ function joinGame(key) {
                     "state": 2
                 })
             });
-        )
+        }
     });
 
     //If a new player is added in the game
